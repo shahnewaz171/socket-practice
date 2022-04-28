@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My first socket IO Project</title>
+</head>
+
+<body>
+    <!-- <h1 id="time">Hello</h1> -->
+    <input type="text" id="name">
+    <button onclick="send()" id="send">Send</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+
+        function send() {
+            let name = document.getElementById('name').value;
+            // socket.send(name);
+            socket.emit('inputValue', name);
+            document.getElementById('name').value = ''
+        }
+        // socket.on('message', (message) => {
+        //     // document.write(message);
+        //     document.getElementById('time').innerHTML = '';
+        //     document.getElementById('time').innerHTML = message;
+        // })
+
+        // // received data from custom event
+        // socket.on('myevent', (message) => {
+        //     document.getElementById('time').innerHTML = '';
+        //     document.getElementById('time').innerHTML = message;
+        // })
+    </script>
+</body>
+
+</html>
